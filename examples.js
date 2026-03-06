@@ -1,17 +1,6 @@
 /* examples.js
    Explicit lists of example image filenames in /examples.
-   NOTE: Do NOT include MidLayer thumbnails here.
-   For now, Small Plaques duplicates Large Plaques so you can rename/swap later.
-*/
-
-/* Group related sports together:
-   - Football first
-   - Volleyball second
-   - Baseball next to Softball
-   - Basketball male/female together
-   - Cheer male/female together
-   - Soccer male/female together
-   - Track male/female together
+   Small Plaques currently duplicates Large Plaques until you choose otherwise.
 */
 
 window.LARGE_PLAQUES = [
@@ -24,17 +13,18 @@ window.LARGE_PLAQUES = [
   "Male Basketball Jersey.png",
   "Female Basketball Jersey.png",
 
-  "Male Cheer.png",
-  "Female Cheer.png",
+  "Male Cheerleading.png",
+  "Female Cheerleading.png",
 
   "Male Soccer Jersey.png",
   "Female Soccer Jersey.png",
 
   "Male Track Jersey.png",
   "Female Track Jersey.png",
-];
 
-/* Duplicate for now as requested; you can swap filenames later */
+  "Male Wrestling.png",
+  "Female Wrestling.png",
+];
 
 window.SMALL_PLAQUES = [
   "Male Football Jersey.png",
@@ -46,12 +36,15 @@ window.SMALL_PLAQUES = [
   "Male Basketball Jersey.png",
   "Female Basketball Jersey.png",
 
-  "Male Cheer.png",
-  "Female Cheer.png",
+  "Male Cheerleading.png",
+  "Female Cheerleading.png",
 
   "Male Soccer Jersey.png",
   "Female Soccer Jersey.png",
 
   "Male Track Jersey.png",
   "Female Track Jersey.png",
+
+  "Male Wrestling.png",
+  "Female Wrestling.png",
 ];

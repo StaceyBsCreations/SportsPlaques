@@ -11,27 +11,29 @@ window.OPTIONS = {
   sports: [
     "Male Football",
     "Female Volleyball",
+
     "Male Baseball",
     "Female Softball",
+
     "Male Basketball",
     "Female Basketball",
+
     "Male Cheer",
     "Female Cheer",
+
     "Male Soccer",
     "Female Soccer",
+
     "Male Track",
     "Female Track",
+
+    "Male Wrestling",
+    "Female Wrestling",
   ],
 
   templates: [
     "Classic: Jersey + Player Card (Like Examples)",
     "Minimal: Jersey Only (Clean Look)",
-  ],
-
-  badgeStyles: [
-    "Standard",
-    "Minimal",
-    "Stats Heavy",
   ],
 
   logoCircle: [
