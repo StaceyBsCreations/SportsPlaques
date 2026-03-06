@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stacey B’s Creations — Custom Sports Plaques</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header site-header-sticky">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-label="Stacey B’s Creations logo">
+          <img
+            class="brand-logo"
+            src="./assets/staceybs_logo.jpg"
+            alt="Stacey B’s Creations logo"
+            onerror="this.style.display='none';document.getElementById('brandFallback').style.display='grid';"
+          />
+          <div id="brandFallback" class="brand-fallback" style="display:none;">
+            <span>SB</span>
+          </div>
+        </div>
+
+        <div class="brand-text">
+          <div class="brand-title">Stacey B’s Creations — Custom Sports Plaques</div>
+          <div class="brand-subtitle">Laser-cut • Layered wood • Made to order</div>
+        </div>
+      </div>
+
+      <nav class="header-actions" aria-label="Primary">
+        <a class="link" href="#how">How it works</a>
+        <a class="link" href="#examples-large">Examples</a>
+        <a class="button" href="#order">Start an order</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="wrap hero-inner hero-inner-feature">
+      <div class="hero-copy">
+        <h1 class="hero-title">Order A Personalized Sports Plaque For Your Athlete.</h1>
+      </div>
+
+      <div class="hero-example-card" aria-label="Featured plaque example">
+        <div class="hero-example-label">Featured Example</div>
+        <img
+          class="hero-example-img"
+          src="./examples/Male%20Football%20Jersey.png"
+          alt="Male Football plaque example"
+        />
+        <div class="hero-example-cap">Male Football</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section id="how" class="section section-muted">
+    <div class="wrap">
+      <h2>How It Works</h2>
+
+      <div class="process-grid" aria-label="Process steps">
+        <div class="process-card">
+          <div class="process-top">
+            <div class="step-pill">1</div>
+            <div class="process-title">Choose Product + Sport</div>
+          </div>
+          <div class="process-body">Choose large plaque or small plaque, then pick your sport and template.</div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-top">
+            <div class="step-pill">2</div>
+            <div class="process-title">Add Athlete Details</div>
+          </div>
+          <div class="process-body">Name, number, school/team, year, plus optional position, grade, and stats.</div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-top">
+            <div class="step-pill">3</div>
+            <div class="process-title">Approve the Proof + 50% Deposit</div>
+          </div>
+          <div class="process-body">We confirm pricing, send a proof, and send a Square invoice for a 50% deposit.</div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-top">
+            <div class="step-pill">4</div>
+            <div class="process-title">Finish + Final Payment</div>
+          </div>
+          <div class="process-body">When finished and approved, we send the final 50% invoice before pickup or shipping.</div>
+        </div>
+      </div>
+
+      <div class="info-stack">
+        <div class="callout left">
+          <div class="callout-title">Payment Policy</div>
+          <div class="callout-body">
+            <ul class="policy-list">
+              <li><strong>50% deposit</strong> is required to begin production after your proof is approved.</li>
+              <li><strong>Final 50%</strong> is due when the piece is finished and agreed to (before pickup/shipping).</li>
+              <li><strong>Final pricing</strong> depends upon layers, customization, and shipping (if chosen) — we confirm final price before invoicing.</li>
+            </ul>
+            <div class="policy-note">
+              After you click “Email Order,” we’ll review your details and reply with <strong>Pricing + Next Steps</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Large Plaques ===== -->
+  <section id="examples-large" class="section">
+    <div class="wrap">
+      <h2>Large Plaques</h2>
+      <p class="small">Click any example to zoom in.</p>
+
+      <div id="largeExamplesGrid" class="gallery-grid" aria-label="Large plaque gallery"></div>
+
+      <div id="largeExamplesEmpty" class="callout left" style="display:none; margin-top:14px;">
+        <div class="callout-title">No Large Plaques Found</div>
+        <div class="callout-body">
+          We didn’t find any images listed for the large plaque gallery.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Small Plaques ===== -->
+  <section id="examples-small" class="section section-muted">
+    <div class="wrap">
+      <h2>Small Plaques</h2>
+      <p class="small">Click any example to zoom in.</p>
+
+      <div id="smallExamplesGrid" class="gallery-grid" aria-label="Small plaque gallery"></div>
+
+      <div id="smallExamplesEmpty" class="callout left" style="display:none; margin-top:14px;">
+        <div class="callout-title">No Small Plaques Found</div>
+        <div class="callout-body">
+          We didn’t find any images listed for the small plaque gallery.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Build Order ===== -->
+  <section id="order" class="section">
+    <div class="wrap">
+      <h2>Build Your Order</h2>
+      <p class="small intro-note">Fields with <strong>*</strong> are recommended for fastest proof turnaround.</p>
+
+      <div class="order-grid order-grid-single">
+        <div class="order-left order-left-full">
+          <div class="card card-pad">
+            <h3 class="form-section-title">Your Contact Info</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="customerName">Customer name *</label>
+                <input id="customerName" type="text" placeholder="e.g., Jane Smith" autocomplete="name" />
+              </div>
+
+              <div>
+                <label for="customerPhone">Phone number *</label>
+                <input id="customerPhone" type="tel" placeholder="e.g., (555) 555-5555" autocomplete="tel" />
+                <div class="help">Used for invoice delivery questions & proof confirmation.</div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <label for="customerEmail">Customer email *</label>
+              <input id="customerEmail" type="email" placeholder="e.g., name@email.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <h3 class="form-section-title">Choose Product, Sport & Styles</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="productType">Product type *</label>
+                <select id="productType"></select>
+              </div>
+
+              <div>
+                <label for="sport">Sport *</label>
+                <select id="sport"></select>
+              </div>
+            </div>
+
+            <div class="field-row" style="margin-top:14px;">
+              <div>
+                <label for="template">Template style</label>
+                <select id="template"></select>
+              </div>
+
+              <div>
+                <label for="baseLayerText">Base layer color</label>
+                <input id="baseLayerText" type="text" placeholder="e.g., Black / Navy / Red" />
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <h3 class="form-section-title">Athlete & Team Details</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="athleteName">Athlete name *</label>
+                <input id="athleteName" type="text" placeholder="e.g., Frank Miller" />
+              </div>
+
+              <div>
+                <label for="athleteNumber">Athlete number *</label>
+                <input id="athleteNumber" type="text" placeholder="e.g., 25" />
+              </div>
+            </div>
+
+            <div class="field-row" style="margin-top:14px;">
+              <div>
+                <label for="schoolName">School / team name *</label>
+                <input id="schoolName" type="text" placeholder="e.g., Wood Tigers" />
+              </div>
+
+              <div>
+                <label for="year">Year of participation</label>
+                <input id="year" type="text" placeholder="e.g., 2026" />
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <h3 class="form-section-title">Uniform Style & Colors</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="uniformPrimary">Uniform primary color *</label>
+                <input id="uniformPrimary" type="text" placeholder="e.g., Black / White / Red" />
+              </div>
+
+              <div>
+                <label for="uniformAccent">Uniform accent color</label>
+                <input id="uniformAccent" type="text" placeholder="e.g., Gold / Silver / Blue" />
+              </div>
+            </div>
+
+            <div class="field-row" style="margin-top:14px;">
+              <div>
+                <label for="numberColor">Number color</label>
+                <input id="numberColor" type="text" placeholder="e.g., White / Gold / Black" />
+              </div>
+
+              <div>
+                <label for="background">Background finish *</label>
+                <input id="background" type="text" placeholder="e.g., Natural wood / Dark stained / Black washed" />
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <h3 class="form-section-title">Custom Badge Details</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="position">Position played</label>
+                <input id="position" type="text" placeholder="e.g., WR" />
+              </div>
+
+              <div>
+                <label for="grade">Grade level</label>
+                <input id="grade" type="text" placeholder="e.g., 11th" />
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <label for="logoCircle">Include team logo circle</label>
+              <select id="logoCircle"></select>
+            </div>
+
+            <div style="margin-top:14px;">
+              <label for="customStats">Custom stats (optional)</label>
+              <textarea id="customStats" placeholder="Examples: • REC: 45 • YDS: 712 • TD: 9 OR • Goals: 18 • Assists: 6"></textarea>
+              <div class="help">We can engrave these on the badge/card area if your template includes it.</div>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <h3 class="form-section-title">Photo / Card Insert</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="photoWindow">Photo window</label>
+                <select id="photoWindow"></select>
+              </div>
+
+              <div>
+                <label for="photoNotes">Photo notes</label>
+                <input id="photoNotes" type="text" placeholder="e.g., 2.5x3.5 card, vertical, matte" />
+              </div>
+            </div>
+
+            <div class="help" style="margin-top:14px;">
+              After clicking <strong>Email Order</strong>, please manually attach your photo or sports card image to the email draft before sending.
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <h3 class="form-section-title">Notes & Delivery</h3>
+
+            <div class="field-row">
+              <div>
+                <label for="neededBy">Needed by</label>
+                <input id="neededBy" type="date" />
+              </div>
+
+              <div>
+                <label for="delivery">Delivery method</label>
+                <select id="delivery"></select>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <label for="notes">Notes</label>
+              <textarea id="notes" placeholder="Anything we should know (special requests, preferred wording, etc.)"></textarea>
+            </div>
+
+            <div class="order-actions">
+              <button class="button button-secondary" id="btnEmail" type="button">Email order</button>
+              <button class="button button-ghost" id="btnCopy" type="button">Copy order</button>
+              <button class="button button-ghost" id="btnReset" type="button">Reset</button>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="margin-top:16px;">
+            <div class="summary-title">Order summary</div>
+            <div class="small subtle" id="sumSku">SKU: —</div>
+
+            <div class="summary-grid">
+              <div class="summary-item">
+                <div class="summary-k">Customer</div>
+                <div class="summary-v" id="sumCustomer">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Phone</div>
+                <div class="summary-v" id="sumPhone">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Email</div>
+                <div class="summary-v" id="sumEmail">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Product</div>
+                <div class="summary-v" id="sumProduct">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Sport</div>
+                <div class="summary-v" id="sumSport">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Template</div>
+                <div class="summary-v" id="sumTemplate">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Base layer color</div>
+                <div class="summary-v" id="sumBaseLayerText">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Athlete</div>
+                <div class="summary-v" id="sumAthlete">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Number</div>
+                <div class="summary-v" id="sumNumber">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">School/team</div>
+                <div class="summary-v" id="sumSchool">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Year</div>
+                <div class="summary-v" id="sumYear">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Uniform colors</div>
+                <div class="summary-v" id="sumUniformColors">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Number color</div>
+                <div class="summary-v" id="sumNumberColor">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Background</div>
+                <div class="summary-v" id="sumBackground">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Position</div>
+                <div class="summary-v" id="sumPosition">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Grade</div>
+                <div class="summary-v" id="sumGrade">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Logo circle</div>
+                <div class="summary-v" id="sumLogoCircle">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Photo window</div>
+                <div class="summary-v" id="sumPhotoWindow">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Delivery</div>
+                <div class="summary-v" id="sumDelivery">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Needed by</div>
+                <div class="summary-v" id="sumNeededBy">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="small">© <span id="yearNow"></span> Stacey B’s Creations</div>
+      <div class="small">Questions? Email us from the order form.</div>
+    </div>
+  </footer>
+
+  <div id="zoomModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="zoomBackdrop"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Example zoom">
+      <div class="modal-top">
+        <div id="zoomTitle" class="modal-title">Example</div>
+        <button id="zoomClose" class="button button-ghost" type="button">Close</button>
+      </div>
+      <img id="zoomImg" class="modal-img" alt="Zoomed example" />
+    </div>
+  </div>
+
+  <script src="./options.js"></script>
+  <script src="./examples.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
