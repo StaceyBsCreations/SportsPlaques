@@ -1,50 +1,40 @@
 /* examples.js
-   Explicit lists of example image filenames in /examples.
-   Small Plaques currently duplicates Large Plaques until you choose otherwise.
+   Lists of example images used for the gallery sections.
+   File names must match files in /examples
 */
 
 window.LARGE_PLAQUES = [
-  "Male Football Jersey.png",
-  "Female Volleyball Jersey.png",
 
-  "Male Baseball Jersey.png",
-  "Female Softball Jersey.png",
+"Male Football Jersey.png",
+"Female Volleyball Jersey.png",
+"Male Baseball Jersey.png",
+"Female Softball Jersey.png",
 
-  "Male Basketball Jersey.png",
-  "Female Basketball Jersey.png",
+"Male Basketball Jersey.png",
+"Female Basketball Jersey.png",
+"Male Cheerleading.png",
+"Female Cheerleading.png",
 
-  "Male Cheerleading.png",
-  "Female Cheerleading.png",
+"Male Soccer Jersey.png",
+"Female Soccer Jersey.png",
+"Male Track Jersey.png",
+"Female Track Jersey.png",
 
-  "Male Soccer Jersey.png",
-  "Female Soccer Jersey.png",
+"Male Wrestling.png",
+"Female Wrestling.png"
 
-  "Male Track Jersey.png",
-  "Female Track Jersey.png",
-
-  "Male Wrestling.png",
-  "Female Wrestling.png",
 ];
 
+
 window.SMALL_PLAQUES = [
-  "Male Football Jersey.png",
-  "Female Volleyball Jersey.png",
 
-  "Male Baseball Jersey.png",
-  "Female Softball Jersey.png",
+"Male Football - Small.JPG",
+"Female Soccer - Small.JPG",
+"Male Baseball - Small.JPG",
+"Male Basketball - Small.JPG",
 
-  "Male Basketball Jersey.png",
-  "Female Basketball Jersey.png",
+"Male Soccer - Small.png",
+"Female Wrestling - Small.png",
+"Male Track - Small.JPG"
 
-  "Male Cheerleading.png",
-  "Female Cheerleading.png",
-
-  "Male Soccer Jersey.png",
-  "Female Soccer Jersey.png",
-
-  "Male Track Jersey.png",
-  "Female Track Jersey.png",
-
-  "Male Wrestling.png",
-  "Female Wrestling.png",
 ];
