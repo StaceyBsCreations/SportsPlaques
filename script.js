@@ -30,6 +30,21 @@
     return (s || "").toString().trim();
   }
 
+  function normalizeFileName(file) {
+    return safe(file).toLowerCase();
+  }
+
+  function exampleScaleClass(file) {
+    const name = normalizeFileName(file);
+
+    if (name.includes("female volleyball")) return "scale-up-md";
+    if (name.includes("female softball")) return "scale-up-md";
+    if (name.includes("male baseball")) return "scale-up-sm";
+    if (name.includes("male football")) return "scale-down-sm";
+
+    return "";
+  }
+
   function fillSelect(id, items, placeholder = "Select...") {
     const el = $(id);
     if (!el) return;
@@ -327,6 +342,7 @@
     files.forEach((file) => {
       const title = displayTitleFromFilename(file);
       const src = `./examples/${encodeURI(file)}`;
+      const scaleClass = exampleScaleClass(file);
 
       const card = document.createElement("div");
       card.className = "gallery-card";
@@ -338,6 +354,10 @@
       const img = document.createElement("img");
       img.alt = title;
       img.src = src;
+
+      if (scaleClass) {
+        img.classList.add(scaleClass);
+      }
 
       img.onload = () => {
         anyLoaded = true;
