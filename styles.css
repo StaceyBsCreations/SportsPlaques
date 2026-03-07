@@ -559,13 +559,19 @@ select,
 textarea{
   width:100%;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,0.12);
+  border:2px solid rgba(255,255,255,0.35);
   background:rgba(255,255,255,0.05);
   color:#fff;
   padding:15px 16px;
   outline:none;
   font-size:1.08rem;
   transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+  border-color:rgba(255,255,255,0.55);
 }
 
 input::placeholder,
@@ -576,9 +582,9 @@ textarea::placeholder{
 input:focus,
 select:focus,
 textarea:focus{
-  border-color:rgba(251,191,36,0.52);
-  background:rgba(255,255,255,0.075);
-  box-shadow:0 0 0 4px rgba(251,191,36,0.14);
+  border-color:rgba(251,191,36,0.85);
+  background:rgba(255,255,255,0.09);
+  box-shadow:0 0 0 4px rgba(251,191,36,0.18);
 }
 
 select{
