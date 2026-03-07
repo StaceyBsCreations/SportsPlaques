@@ -11,6 +11,13 @@
   const LARGE = window.LARGE_PLAQUES || [];
   const SMALL = window.SMALL_PLAQUES || [];
 
+  const FRAME_FINISHES = [
+    "Natural",
+    "Jacobean",
+    "Burnt Umber",
+    "Black",
+  ];
+
   function $(id) {
     return document.getElementById(id);
   }
@@ -137,7 +144,7 @@
 
     setText("sumUniformColors", combinedUniformColors());
     setText("sumNumberColor", val("numberColor") || "—");
-    setText("sumBackground", val("background") || "—");
+    setText("sumFrameFinish", val("frameFinish") || "—");
 
     setText("sumPosition", val("position") || "—");
     setText("sumGrade", val("grade") || "—");
@@ -194,7 +201,7 @@
     lines.push(`Uniform Primary Color: ${val("uniformPrimary")}`);
     lines.push(`Uniform Accent Color: ${val("uniformAccent")}`);
     lines.push(`Number Color: ${val("numberColor")}`);
-    lines.push(`Background Finish: ${val("background")}`);
+    lines.push(`Frame Finish: ${val("frameFinish")}`);
     lines.push("");
 
     lines.push("CUSTOM BADGE DETAILS");
@@ -266,7 +273,7 @@
       "uniformPrimary",
       "uniformAccent",
       "numberColor",
-      "background",
+      "frameFinish",
       "position",
       "grade",
       "logoCircle",
@@ -313,11 +320,20 @@
 
   function displayTitleFromFilename(file) {
     const raw = safe(file).replace(/\.(png|jpg|jpeg|webp)$/i, "");
+    const isSmallPlaque = /\bsmall\b/i.test(raw);
 
-    return raw
+    let title = raw
       .replace(/Cheerleading/gi, "Cheer")
+      .replace(/\s*-\s*Small/gi, "")
+      .replace(/\s+Small$/i, "")
       .replace(/\s+Jersey$/i, "")
       .trim();
+
+    if (isSmallPlaque) {
+      title = `${title} Small Plaque`;
+    }
+
+    return title;
   }
 
   function renderExampleSection(gridId, emptyId, files) {
@@ -406,6 +422,7 @@
     fillSelect("logoCircle", OPT.logoCircle || []);
     fillSelect("photoWindow", OPT.photoWindow || []);
     fillSelect("delivery", OPT.delivery || []);
+    fillSelect("frameFinish", FRAME_FINISHES);
 
     bindInputs([
       "customerName",
@@ -422,7 +439,7 @@
       "uniformPrimary",
       "uniformAccent",
       "numberColor",
-      "background",
+      "frameFinish",
       "position",
       "grade",
       "logoCircle",
