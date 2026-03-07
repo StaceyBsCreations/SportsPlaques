@@ -37,10 +37,9 @@
   function exampleScaleClass(file) {
     const name = normalizeFileName(file);
 
+    if (name.includes("male football")) return "scale-down-md";
     if (name.includes("female volleyball")) return "scale-up-md";
     if (name.includes("female softball")) return "scale-up-md";
-    if (name.includes("male baseball")) return "scale-up-sm";
-    if (name.includes("male football")) return "scale-down-sm";
 
     return "";
   }

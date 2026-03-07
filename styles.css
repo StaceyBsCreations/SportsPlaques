@@ -500,6 +500,10 @@ p{
   transform:scale(0.95);
 }
 
+.gallery-imgwrap img.scale-down-md{
+  transform:scale(0.90);
+}
+
 .gallery-cap{
   padding:14px 16px 16px;
   font-size:1.18rem;
