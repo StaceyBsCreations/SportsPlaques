@@ -320,20 +320,13 @@
 
   function displayTitleFromFilename(file) {
     const raw = safe(file).replace(/\.(png|jpg|jpeg|webp)$/i, "");
-    const isSmallPlaque = /\bsmall\b/i.test(raw);
 
-    let title = raw
+    return raw
       .replace(/Cheerleading/gi, "Cheer")
       .replace(/\s*-\s*Small/gi, "")
       .replace(/\s+Small$/i, "")
       .replace(/\s+Jersey$/i, "")
       .trim();
-
-    if (isSmallPlaque) {
-      title = `${title} Small Plaque`;
-    }
-
-    return title;
   }
 
   function renderExampleSection(gridId, emptyId, files) {
