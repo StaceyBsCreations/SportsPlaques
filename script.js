@@ -4,6 +4,7 @@
    - Updates summary
    - Email + copy order
    - Renders two example galleries from examples.js
+   - Handles light/dark theme switching
 */
 
 (function () {
@@ -17,6 +18,8 @@
     "Burnt Umber",
     "Black",
   ];
+
+  const THEME_STORAGE_KEY = "staceybs-theme";
 
   function $(id) {
     return document.getElementById(id);
@@ -127,6 +130,31 @@
     return primary || accent || "—";
   }
 
+  function applyTheme(theme) {
+    const normalized = theme === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", normalized);
+
+    const themeSelect = $("themeSelect");
+    if (themeSelect) {
+      themeSelect.value = normalized;
+    }
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, normalized);
+    } catch (e) {
+      /* ignore storage issues */
+    }
+  }
+
+  function getSavedTheme() {
+    try {
+      const stored = localStorage.getItem(THEME_STORAGE_KEY);
+      return stored === "light" ? "light" : "dark";
+    } catch (e) {
+      return "dark";
+    }
+  }
+
   function updateSummary() {
     setText("sumCustomer", val("customerName") || "—");
     setText("sumPhone", val("customerPhone") || "—");
@@ -191,7 +219,7 @@
     lines.push("");
 
     lines.push("ATHLETE & TEAM DETAILS");
-    lines.push(`Athlete Name: ${val("athleteName")}`);
+    lines.push(`Athlete Name For Back Of Jersey: ${val("athleteName")}`);
     lines.push(`Athlete Number: ${val("athleteNumber")}`);
     lines.push(`School / Team Name: ${val("schoolName")}`);
     lines.push(`Year Of Participation: ${val("year")}`);
@@ -447,6 +475,7 @@
     const btnEmail = $("btnEmail");
     const btnCopy = $("btnCopy");
     const btnReset = $("btnReset");
+    const themeSelect = $("themeSelect");
 
     if (btnEmail) btnEmail.addEventListener("click", () => emailOrder());
     if (btnCopy) {
@@ -455,6 +484,12 @@
       });
     }
     if (btnReset) btnReset.addEventListener("click", () => resetForm());
+
+    if (themeSelect) {
+      themeSelect.addEventListener("change", (e) => {
+        applyTheme(e.target.value);
+      });
+    }
 
     const closeBtn = $("zoomClose");
     const backdrop = $("zoomBackdrop");
@@ -468,6 +503,8 @@
         closeZoom();
       }
     });
+
+    applyTheme(getSavedTheme());
 
     renderExampleSection("largeExamplesGrid", "largeExamplesEmpty", LARGE);
     renderExampleSection("smallExamplesGrid", "smallExamplesEmpty", SMALL);
