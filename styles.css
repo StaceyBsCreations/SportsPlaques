@@ -509,6 +509,11 @@ p{
   font-size:1.18rem;
   font-weight:900;
   color:#fff;
+  text-align:center;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 /* ===== Order Form ===== */
