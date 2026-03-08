@@ -280,9 +280,9 @@ p{
 }
 
 .hero-inner-feature{
-  grid-template-columns:minmax(0, 1.15fr) minmax(320px, 430px);
-  gap:36px;
-  max-width:1320px;
+  grid-template-columns:minmax(0, 1.1fr) minmax(430px, 520px);
+  gap:40px;
+  max-width:1400px;
 }
 
 .hero-copy{
@@ -304,11 +304,12 @@ p{
   box-shadow:var(--shadow);
   overflow:hidden;
   align-self:center;
+  width:100%;
 }
 
 .hero-example-label{
-  padding:16px 18px 0;
-  font-size:0.95rem;
+  padding:18px 20px 0;
+  font-size:1.05rem;
   font-weight:900;
   letter-spacing:0.04em;
   text-transform:uppercase;
@@ -319,12 +320,12 @@ p{
   width:100%;
   height:auto;
   display:block;
-  padding:14px 14px 0;
+  padding:16px 16px 0;
 }
 
 .hero-example-cap{
-  padding:14px 18px 18px;
-  font-size:1.15rem;
+  padding:16px 20px 20px;
+  font-size:1.45rem;
   font-weight:900;
   color:#fff;
 }
@@ -564,7 +565,7 @@ select,
 textarea{
   width:100%;
   border-radius:16px;
-  border:2px solid rgba(255,255,255,0.35);
+  border:3px solid rgba(255,255,255,0.42);
   background:rgba(255,255,255,0.05);
   color:#fff;
   padding:15px 16px;
@@ -576,7 +577,7 @@ textarea{
 input:hover,
 select:hover,
 textarea:hover{
-  border-color:rgba(255,255,255,0.55);
+  border-color:rgba(255,255,255,0.68);
 }
 
 input::placeholder,
@@ -587,9 +588,9 @@ textarea::placeholder{
 input:focus,
 select:focus,
 textarea:focus{
-  border-color:rgba(251,191,36,0.85);
+  border-color:rgba(251,191,36,0.95);
   background:rgba(255,255,255,0.09);
-  box-shadow:0 0 0 4px rgba(251,191,36,0.18);
+  box-shadow:0 0 0 5px rgba(251,191,36,0.22);
 }
 
 select{
@@ -770,7 +771,7 @@ input[type="date"]{
   }
 
   .hero-example-card{
-    max-width:430px;
+    max-width:560px;
   }
 }
 
