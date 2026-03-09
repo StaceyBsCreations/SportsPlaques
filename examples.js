@@ -29,12 +29,12 @@ window.LARGE_PLAQUES = [
 window.SMALL_PLAQUES = [
 
 "Male Football - Small.JPG",
-"Female Soccer - Small.JPG",
-"Male Baseball - Small.JPG",
 "Male Basketball - Small.JPG",
-
-"Male Soccer - Small.png",
-"Female Wrestling - Small.png",
+"Male Baseball - Small.JPG",
 "Male Track - Small.JPG"
+"Male Soccer - Small.png",
+"Female Soccer - Small.JPG",
+"Female Wrestling - Small.png",
+
 
 ];
