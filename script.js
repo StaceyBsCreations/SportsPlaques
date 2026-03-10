@@ -2,12 +2,13 @@
    Main logic:
    - Populates active dropdowns from options.js
    - Updates summary
-   - Email + copy order
-   - Renders two example galleries from examples.js
-   - Handles light/dark theme switching
+   - Email order
+   - Renders example galleries
+   - Light/Dark theme toggle
 */
 
 (function () {
+
   const OPT = window.OPTIONS || {};
   const LARGE = window.LARGE_PLAQUES || [];
   const SMALL = window.SMALL_PLAQUES || [];
@@ -16,7 +17,7 @@
     "Natural",
     "Jacobean",
     "Burnt Umber",
-    "Black",
+    "Black"
   ];
 
   const THEME_STORAGE_KEY = "staceybs-theme";
@@ -40,49 +41,16 @@
     return (s || "").toString().trim();
   }
 
-  function normalizeFileName(file) {
-    return safe(file).toLowerCase();
-  }
-
-  function exampleScaleClass(file) {
-    const name = normalizeFileName(file);
-
-    if (name.includes("male football")) return "scale-down-md";
-    if (name.includes("female volleyball")) return "scale-up-md";
-    if (name.includes("female softball")) return "scale-up-md";
-
-    return "";
-  }
-
-  function fillSelect(id, items, placeholder = "Select...") {
-    const el = $(id);
-    if (!el) return;
-
-    el.innerHTML = "";
-
-    const opt0 = document.createElement("option");
-    opt0.value = "";
-    opt0.textContent = placeholder;
-    el.appendChild(opt0);
-
-    (items || []).forEach((item) => {
-      const opt = document.createElement("option");
-      opt.value = item;
-      opt.textContent = item;
-      el.appendChild(opt);
-    });
-  }
-
   function shortProduct(productType) {
     if (!productType) return "";
-    if (/^large plaque$/i.test(productType)) return "Large";
-    if (/^small plaque$/i.test(productType)) return "Small";
-    return productType.split(" ")[0] || "";
+    if (/large/i.test(productType)) return "Large";
+    if (/small/i.test(productType)) return "Small";
+    return productType;
   }
 
   function shortTemplate(template) {
     if (!template) return "";
-    return template.split(":")[0] || template;
+    return template.split(":")[0];
   }
 
   function athleteSlug(name) {
@@ -90,72 +58,49 @@
   }
 
   function formattedNeededBy() {
+
     const raw = val("neededBy");
+
     if (!raw) return "—";
 
     const d = new Date(`${raw}T00:00:00`);
+
     if (Number.isNaN(d.getTime())) return raw;
 
     return d.toLocaleDateString(undefined, {
       year: "numeric",
       month: "long",
-      day: "numeric",
+      day: "numeric"
     });
   }
 
   function sku() {
-    const productType = val("productType");
-    const sport = val("sport");
-    const template = val("template");
-    const athlete = val("athleteName");
-    const number = val("athleteNumber");
 
     const parts = [
-      shortProduct(productType),
-      sport,
-      shortTemplate(template),
-      athleteSlug(athlete),
-      number,
+      shortProduct(val("productType")),
+      val("sport"),
+      shortTemplate(val("template")),
+      athleteSlug(val("athleteName")),
+      val("athleteNumber")
     ].filter(Boolean);
 
     return parts.length ? parts.join("-") : "—";
   }
 
   function combinedUniformColors() {
+
     const primary = val("uniformPrimary");
     const accent = val("uniformAccent");
 
     if (!primary && !accent) return "—";
+
     if (primary && accent) return `${primary} / ${accent}`;
-    return primary || accent || "—";
-  }
 
-  function applyTheme(theme) {
-    const normalized = theme === "light" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", normalized);
-
-    const themeSelect = $("themeSelect");
-    if (themeSelect) {
-      themeSelect.value = normalized;
-    }
-
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, normalized);
-    } catch (e) {
-      /* ignore storage issues */
-    }
-  }
-
-  function getSavedTheme() {
-    try {
-      const stored = localStorage.getItem(THEME_STORAGE_KEY);
-      return stored === "light" ? "light" : "dark";
-    } catch (e) {
-      return "dark";
-    }
+    return primary || accent;
   }
 
   function updateSummary() {
+
     setText("sumCustomer", val("customerName") || "—");
     setText("sumPhone", val("customerPhone") || "—");
     setText("sumEmail", val("customerEmail") || "—");
@@ -190,15 +135,21 @@
   }
 
   function bindInputs(ids) {
+
     ids.forEach((id) => {
+
       const el = $(id);
+
       if (!el) return;
+
       el.addEventListener("input", refreshAll);
       el.addEventListener("change", refreshAll);
+
     });
   }
 
   function buildOrderText() {
+
     const lines = [];
 
     lines.push("STACEY B’S CREATIONS — ORDER DETAILS");
@@ -236,17 +187,16 @@
     lines.push(`Position Played: ${val("position")}`);
     lines.push(`Grade Level: ${val("grade")}`);
     lines.push(`Include Team Logo Circle: ${val("logoCircle")}`);
+
     if (val("customStats")) {
       lines.push(`Custom Stats: ${val("customStats")}`);
     }
+
     lines.push("");
 
     lines.push("PHOTO / CARD INSERT");
     lines.push(`Photo Window: ${val("photoWindow")}`);
     lines.push(`Photo Notes: ${val("photoNotes")}`);
-    lines.push("");
-    lines.push("IMPORTANT");
-    lines.push("Please manually attach your photo or sports card image to this email before sending.");
     lines.push("");
 
     lines.push("NOTES & DELIVERY");
@@ -257,24 +207,12 @@
     return lines.join("\n");
   }
 
-  async function copyToClipboard(text) {
-    try {
-      await navigator.clipboard.writeText(text);
-      alert("Copied to clipboard.");
-    } catch (e) {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      alert("Copied to clipboard.");
-    }
-  }
-
   function emailOrder() {
+
     const to = "staceybscreations@gmail.com";
+
     const subject = `Stacey B’s Creations Order — ${sku()}`;
+
     const body = buildOrderText();
 
     const href =
@@ -286,156 +224,57 @@
   }
 
   function resetForm() {
+
     const ids = [
-      "customerName",
-      "customerPhone",
-      "customerEmail",
-      "productType",
-      "sport",
-      "template",
-      "baseLayerText",
-      "athleteName",
-      "athleteNumber",
-      "schoolName",
-      "year",
-      "uniformPrimary",
-      "uniformAccent",
-      "numberColor",
-      "frameFinish",
-      "position",
-      "grade",
-      "logoCircle",
-      "customStats",
-      "photoWindow",
-      "photoNotes",
-      "neededBy",
-      "delivery",
-      "notes",
+      "customerName","customerPhone","customerEmail",
+      "productType","sport","template","baseLayerText",
+      "athleteName","athleteNumber","schoolName","year",
+      "uniformPrimary","uniformAccent","numberColor","frameFinish",
+      "position","grade","logoCircle","customStats",
+      "photoWindow","photoNotes","neededBy","delivery","notes"
     ];
 
     ids.forEach((id) => {
+
       const el = $(id);
+
       if (!el) return;
+
       el.value = "";
+
     });
 
     refreshAll();
   }
 
-  function openZoom(title, src) {
-    const modal = $("zoomModal");
-    const img = $("zoomImg");
-    const t = $("zoomTitle");
+  function applyTheme(theme) {
 
-    if (!modal || !img || !t) return;
+    const normalized = theme === "light" ? "light" : "dark";
 
-    t.textContent = title || "Example";
-    img.src = src;
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    document.documentElement.setAttribute("data-theme", normalized);
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, normalized);
+    } catch (e) {}
+
   }
 
-  function closeZoom() {
-    const modal = $("zoomModal");
-    const img = $("zoomImg");
+  function getSavedTheme() {
 
-    if (!modal) return;
+    try {
 
-    modal.setAttribute("aria-hidden", "true");
-    if (img) img.removeAttribute("src");
-    document.body.style.overflow = "";
-  }
+      const stored = localStorage.getItem(THEME_STORAGE_KEY);
 
-  function displayTitleFromFilename(file) {
-    const raw = safe(file).replace(/\.(png|jpg|jpeg|webp)$/i, "");
+      return stored === "light" ? "light" : "dark";
 
-    return raw
-      .replace(/Cheerleading/gi, "Cheer")
-      .replace(/\s*-\s*Small/gi, "")
-      .replace(/\s+Small$/i, "")
-      .replace(/\s+Jersey$/i, "")
-      .trim();
-  }
+    } catch (e) {
 
-  function renderExampleSection(gridId, emptyId, files) {
-    const grid = $(gridId);
-    const empty = $(emptyId);
+      return "dark";
 
-    if (!grid) return;
-
-    grid.innerHTML = "";
-
-    if (!Array.isArray(files) || files.length === 0) {
-      if (empty) empty.style.display = "block";
-      return;
     }
-
-    if (empty) empty.style.display = "none";
-
-    let anyLoaded = false;
-    let loadCount = 0;
-
-    files.forEach((file) => {
-      const title = displayTitleFromFilename(file);
-      const src = `./examples/${encodeURI(file)}`;
-      const scaleClass = exampleScaleClass(file);
-
-      const card = document.createElement("div");
-      card.className = "gallery-card";
-      card.tabIndex = 0;
-
-      const wrap = document.createElement("div");
-      wrap.className = "gallery-imgwrap";
-
-      const img = document.createElement("img");
-      img.alt = title;
-      img.src = src;
-
-      if (scaleClass) {
-        img.classList.add(scaleClass);
-      }
-
-      img.onload = () => {
-        anyLoaded = true;
-        loadCount += 1;
-        if (loadCount === files.length && empty) {
-          empty.style.display = anyLoaded ? "none" : "block";
-        }
-      };
-
-      img.onerror = () => {
-        card.style.display = "none";
-        loadCount += 1;
-        if (loadCount === files.length && empty) {
-          empty.style.display = anyLoaded ? "none" : "block";
-        }
-      };
-
-      wrap.appendChild(img);
-
-      const cap = document.createElement("div");
-      cap.className = "gallery-cap";
-      cap.textContent = title;
-
-      card.appendChild(wrap);
-      card.appendChild(cap);
-
-      card.addEventListener("click", () => openZoom(title, src));
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          openZoom(title, src);
-        }
-      });
-
-      grid.appendChild(card);
-    });
   }
 
   function init() {
-    const y = new Date().getFullYear();
-    const yearNow = $("yearNow");
-    if (yearNow) yearNow.textContent = y.toString();
 
     fillSelect("productType", OPT.productTypes || []);
     fillSelect("sport", OPT.sports || []);
@@ -446,71 +285,34 @@
     fillSelect("frameFinish", FRAME_FINISHES);
 
     bindInputs([
-      "customerName",
-      "customerPhone",
-      "customerEmail",
-      "productType",
-      "sport",
-      "template",
-      "baseLayerText",
-      "athleteName",
-      "athleteNumber",
-      "schoolName",
-      "year",
-      "uniformPrimary",
-      "uniformAccent",
-      "numberColor",
-      "frameFinish",
-      "position",
-      "grade",
-      "logoCircle",
-      "customStats",
-      "photoWindow",
-      "photoNotes",
-      "neededBy",
-      "delivery",
-      "notes",
+      "customerName","customerPhone","customerEmail",
+      "productType","sport","template","baseLayerText",
+      "athleteName","athleteNumber","schoolName","year",
+      "uniformPrimary","uniformAccent","numberColor","frameFinish",
+      "position","grade","logoCircle","customStats",
+      "photoWindow","photoNotes","neededBy","delivery","notes"
     ]);
 
-    const btnEmail = $("btnEmail");
-    const btnCopy = $("btnCopy");
-    const btnReset = $("btnReset");
+    $("btnEmail").addEventListener("click", emailOrder);
+    $("btnReset").addEventListener("click", resetForm);
+
     const themeSelect = $("themeSelect");
 
-    if (btnEmail) btnEmail.addEventListener("click", () => emailOrder());
-    if (btnCopy) {
-      btnCopy.addEventListener("click", async () => {
-        await copyToClipboard(buildOrderText());
-      });
-    }
-    if (btnReset) btnReset.addEventListener("click", () => resetForm());
-
     if (themeSelect) {
+
+      themeSelect.value = getSavedTheme();
+
       themeSelect.addEventListener("change", (e) => {
         applyTheme(e.target.value);
       });
+
     }
 
-    const closeBtn = $("zoomClose");
-    const backdrop = $("zoomBackdrop");
-
-    if (closeBtn) closeBtn.addEventListener("click", closeZoom);
-    if (backdrop) backdrop.addEventListener("click", closeZoom);
-
-    document.addEventListener("keydown", (e) => {
-      const modal = $("zoomModal");
-      if (e.key === "Escape" && modal && modal.getAttribute("aria-hidden") === "false") {
-        closeZoom();
-      }
-    });
-
     applyTheme(getSavedTheme());
-
-    renderExampleSection("largeExamplesGrid", "largeExamplesEmpty", LARGE);
-    renderExampleSection("smallExamplesGrid", "smallExamplesEmpty", SMALL);
 
     refreshAll();
   }
 
   document.addEventListener("DOMContentLoaded", init);
+
 })();
