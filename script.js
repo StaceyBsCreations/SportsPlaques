@@ -41,6 +41,10 @@
     return (s || "").toString().trim();
   }
 
+  function displayValue(value) {
+    return safe(value) || "—";
+  }
+
   function fillSelect(id, items, placeholder = "Select...") {
     const el = $(id);
     if (!el) return;
@@ -160,58 +164,74 @@
 
   function buildOrderText() {
     const lines = [];
+    const stats = safe(val("customStats"));
 
     lines.push("STACEY B’S CREATIONS — ORDER DETAILS");
-    lines.push(`SKU: ${sku()}`);
+    lines.push("==================================================");
     lines.push("");
-
+    lines.push("IMPORTANT PHOTO ATTACHMENT REMINDER");
+    lines.push("Attach your athlete photo or sports card image to this email before sending.");
+    lines.push("If your order includes a photo/card insert, production cannot begin without the image attachment.");
+    lines.push("");
+    lines.push("ORDER SKU");
+    lines.push(sku());
+    lines.push("");
+    lines.push("--------------------------------------------------");
     lines.push("CONTACT");
-    lines.push(`Customer Name: ${val("customerName")}`);
-    lines.push(`Phone Number: ${val("customerPhone")}`);
-    lines.push(`Customer Email: ${val("customerEmail")}`);
+    lines.push(`Customer Name: ${displayValue(val("customerName"))}`);
+    lines.push(`Phone Number: ${displayValue(val("customerPhone"))}`);
+    lines.push(`Customer Email: ${displayValue(val("customerEmail"))}`);
     lines.push("");
-
+    lines.push("--------------------------------------------------");
     lines.push("PRODUCT, SPORT & STYLES");
-    lines.push(`Product Type: ${val("productType")}`);
-    lines.push(`Sport: ${val("sport")}`);
-    lines.push(`Template Style: ${val("template")}`);
-    lines.push(`Base Layer Color: ${val("baseLayerText")}`);
+    lines.push(`Product Type: ${displayValue(val("productType"))}`);
+    lines.push(`Sport: ${displayValue(val("sport"))}`);
+    lines.push(`Template Style: ${displayValue(val("template"))}`);
+    lines.push(`Base Layer Color: ${displayValue(val("baseLayerText"))}`);
     lines.push("");
-
+    lines.push("--------------------------------------------------");
     lines.push("ATHLETE & TEAM DETAILS");
-    lines.push(`Athlete Name For Back Of Jersey: ${val("athleteName")}`);
-    lines.push(`Athlete Number: ${val("athleteNumber")}`);
-    lines.push(`School / Team Name: ${val("schoolName")}`);
-    lines.push(`Year Of Participation: ${val("year")}`);
+    lines.push(`Athlete Name (Back of Jersey): ${displayValue(val("athleteName"))}`);
+    lines.push(`Athlete Number: ${displayValue(val("athleteNumber"))}`);
+    lines.push(`School / Team Name: ${displayValue(val("schoolName"))}`);
+    lines.push(`Year Of Participation: ${displayValue(val("year"))}`);
     lines.push("");
-
+    lines.push("--------------------------------------------------");
     lines.push("UNIFORM STYLE & COLORS");
-    lines.push(`Uniform Primary Color: ${val("uniformPrimary")}`);
-    lines.push(`Uniform Accent Color: ${val("uniformAccent")}`);
-    lines.push(`Number Color: ${val("numberColor")}`);
-    lines.push(`Frame Finish: ${val("frameFinish")}`);
+    lines.push(`Uniform Primary Color: ${displayValue(val("uniformPrimary"))}`);
+    lines.push(`Uniform Accent Color: ${displayValue(val("uniformAccent"))}`);
+    lines.push(`Number Color: ${displayValue(val("numberColor"))}`);
+    lines.push(`Frame Finish: ${displayValue(val("frameFinish"))}`);
+    lines.push("");
+    lines.push("--------------------------------------------------");
+    lines.push("CUSTOM BADGE DETAILS");
+    lines.push(`Position Played: ${displayValue(val("position"))}`);
+    lines.push(`Grade Level: ${displayValue(val("grade"))}`);
+    lines.push(`Include Team Logo Circle: ${displayValue(val("logoCircle"))}`);
     lines.push("");
 
-    lines.push("CUSTOM BADGE DETAILS");
-    lines.push(`Position Played: ${val("position")}`);
-    lines.push(`Grade Level: ${val("grade")}`);
-    lines.push(`Include Team Logo Circle: ${val("logoCircle")}`);
-
-    if (val("customStats")) {
-      lines.push(`Custom Stats: ${val("customStats")}`);
+    if (stats) {
+      lines.push("Custom Stats:");
+      lines.push(stats);
+    } else {
+      lines.push("Custom Stats: —");
     }
 
     lines.push("");
-
+    lines.push("--------------------------------------------------");
     lines.push("PHOTO / CARD INSERT");
-    lines.push(`Photo Window: ${val("photoWindow")}`);
-    lines.push(`Photo Notes: ${val("photoNotes")}`);
+    lines.push(`Photo Window: ${displayValue(val("photoWindow"))}`);
+    lines.push(`Photo Notes: ${displayValue(val("photoNotes"))}`);
     lines.push("");
-
+    lines.push("--------------------------------------------------");
     lines.push("NOTES & DELIVERY");
     lines.push(`Needed By: ${formattedNeededBy()}`);
-    lines.push(`Delivery Method: ${val("delivery")}`);
-    lines.push(`Notes: ${val("notes")}`);
+    lines.push(`Delivery Method: ${displayValue(val("delivery"))}`);
+    lines.push(`Notes: ${displayValue(val("notes"))}`);
+    lines.push("");
+    lines.push("==================================================");
+    lines.push("Stacey B’s Creations");
+    lines.push("Order submitted from the website order form.");
 
     return lines.join("\n");
   }
