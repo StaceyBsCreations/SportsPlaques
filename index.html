@@ -83,7 +83,7 @@
             <div class="step-pill">2</div>
             <div class="process-title">Add Athlete Details</div>
           </div>
-          <div class="process-body">Name, number, school/team, year, plus optional position, grade, and stats.</div>
+          <div class="process-body">Name, number, school/team, year, plus optional player details and stats.</div>
         </div>
 
         <div class="process-card">
@@ -240,6 +240,23 @@
                 <input id="year" type="text" placeholder="e.g., 1989" />
               </div>
             </div>
+
+            <div class="field-row" style="margin-top:14px;">
+              <div>
+                <label for="bornHometown">Born / hometown</label>
+                <input id="bornHometown" type="text" placeholder="e.g., Brampton, ON" />
+              </div>
+
+              <div>
+                <label for="height">Height</label>
+                <input id="height" type="text" placeholder="e.g., 6 ft 0 in" />
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <label for="weight">Weight</label>
+              <input id="weight" type="text" placeholder="e.g., 214 lbs" />
+            </div>
           </div>
 
           <div class="card card-pad" style="margin-top:16px;">
@@ -393,6 +410,19 @@
               <div class="summary-item">
                 <div class="summary-k">Year</div>
                 <div class="summary-v" id="sumYear">—</div>
+              </div>
+
+              <div class="summary-item">
+                <div class="summary-k">Born / hometown</div>
+                <div class="summary-v" id="sumBornHometown">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Height</div>
+                <div class="summary-v" id="sumHeight">—</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-k">Weight</div>
+                <div class="summary-v" id="sumWeight">—</div>
               </div>
 
               <div class="summary-item">

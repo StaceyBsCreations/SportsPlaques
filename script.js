@@ -118,6 +118,17 @@
     return primary || accent;
   }
 
+  function buildEmailSubject() {
+    const product = shortProduct(val("productType")) || "Plaque";
+    const sport = val("sport") || "Unknown Sport";
+    const athlete = val("athleteName") || "Unknown Athlete";
+    const number = val("athleteNumber");
+
+    return number
+      ? `Plaque Order | ${product} | ${sport} | ${athlete} #${number}`
+      : `Plaque Order | ${product} | ${sport} | ${athlete}`;
+  }
+
   function updateSummary() {
     setText("sumCustomer", val("customerName") || "—");
     setText("sumPhone", val("customerPhone") || "—");
@@ -132,6 +143,9 @@
     setText("sumNumber", val("athleteNumber") || "—");
     setText("sumSchool", val("schoolName") || "—");
     setText("sumYear", val("year") || "—");
+    setText("sumBornHometown", val("bornHometown") || "—");
+    setText("sumHeight", val("height") || "—");
+    setText("sumWeight", val("weight") || "—");
 
     setText("sumUniformColors", combinedUniformColors());
     setText("sumNumberColor", val("numberColor") || "—");
@@ -169,42 +183,45 @@
     lines.push("STACEY B’S CREATIONS — ORDER DETAILS");
     lines.push("==================================================");
     lines.push("");
-    lines.push("IMPORTANT PHOTO ATTACHMENT REMINDER");
+    lines.push("**IMPORTANT PHOTO ATTACHMENT REMINDER**");
     lines.push("Attach your athlete photo or sports card image to this email before sending.");
     lines.push("If your order includes a photo/card insert, production cannot begin without the image attachment.");
     lines.push("");
-    lines.push("ORDER SKU");
+    lines.push("**ORDER SKU**");
     lines.push(sku());
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("CONTACT");
+    lines.push("**CONTACT**");
     lines.push(`Customer Name: ${displayValue(val("customerName"))}`);
     lines.push(`Phone Number: ${displayValue(val("customerPhone"))}`);
     lines.push(`Customer Email: ${displayValue(val("customerEmail"))}`);
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("PRODUCT, SPORT & STYLES");
+    lines.push("**PRODUCT, SPORT & STYLES**");
     lines.push(`Product Type: ${displayValue(val("productType"))}`);
     lines.push(`Sport: ${displayValue(val("sport"))}`);
     lines.push(`Template Style: ${displayValue(val("template"))}`);
     lines.push(`Base Layer Color: ${displayValue(val("baseLayerText"))}`);
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("ATHLETE & TEAM DETAILS");
+    lines.push("**ATHLETE & TEAM DETAILS**");
     lines.push(`Athlete Name (Back of Jersey): ${displayValue(val("athleteName"))}`);
     lines.push(`Athlete Number: ${displayValue(val("athleteNumber"))}`);
     lines.push(`School / Team Name: ${displayValue(val("schoolName"))}`);
     lines.push(`Year Of Participation: ${displayValue(val("year"))}`);
+    lines.push(`Born / Hometown: ${displayValue(val("bornHometown"))}`);
+    lines.push(`Height: ${displayValue(val("height"))}`);
+    lines.push(`Weight: ${displayValue(val("weight"))}`);
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("UNIFORM STYLE & COLORS");
+    lines.push("**UNIFORM STYLE & COLORS**");
     lines.push(`Uniform Primary Color: ${displayValue(val("uniformPrimary"))}`);
     lines.push(`Uniform Accent Color: ${displayValue(val("uniformAccent"))}`);
     lines.push(`Number Color: ${displayValue(val("numberColor"))}`);
     lines.push(`Frame Finish: ${displayValue(val("frameFinish"))}`);
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("CUSTOM BADGE DETAILS");
+    lines.push("**CUSTOM BADGE DETAILS**");
     lines.push(`Position Played: ${displayValue(val("position"))}`);
     lines.push(`Grade Level: ${displayValue(val("grade"))}`);
     lines.push(`Include Team Logo Circle: ${displayValue(val("logoCircle"))}`);
@@ -219,12 +236,12 @@
 
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("PHOTO / CARD INSERT");
+    lines.push("**PHOTO / CARD INSERT**");
     lines.push(`Photo Window: ${displayValue(val("photoWindow"))}`);
     lines.push(`Photo Notes: ${displayValue(val("photoNotes"))}`);
     lines.push("");
     lines.push("--------------------------------------------------");
-    lines.push("NOTES & DELIVERY");
+    lines.push("**NOTES & DELIVERY**");
     lines.push(`Needed By: ${formattedNeededBy()}`);
     lines.push(`Delivery Method: ${displayValue(val("delivery"))}`);
     lines.push(`Notes: ${displayValue(val("notes"))}`);
@@ -238,7 +255,7 @@
 
   function emailOrder() {
     const to = "staceybscreations@gmail.com";
-    const subject = `Stacey B’s Creations Order — ${sku()}`;
+    const subject = buildEmailSubject();
     const body = buildOrderText();
 
     const href =
@@ -254,6 +271,7 @@
       "customerName", "customerPhone", "customerEmail",
       "productType", "sport", "template", "baseLayerText",
       "athleteName", "athleteNumber", "schoolName", "year",
+      "bornHometown", "height", "weight",
       "uniformPrimary", "uniformAccent", "numberColor", "frameFinish",
       "position", "grade", "logoCircle", "customStats",
       "photoWindow", "photoNotes", "neededBy", "delivery", "notes"
@@ -425,6 +443,7 @@
       "customerName", "customerPhone", "customerEmail",
       "productType", "sport", "template", "baseLayerText",
       "athleteName", "athleteNumber", "schoolName", "year",
+      "bornHometown", "height", "weight",
       "uniformPrimary", "uniformAccent", "numberColor", "frameFinish",
       "position", "grade", "logoCircle", "customStats",
       "photoWindow", "photoNotes", "neededBy", "delivery", "notes"
