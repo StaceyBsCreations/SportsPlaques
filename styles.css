@@ -281,7 +281,7 @@ p{
 .theme-switch-label{
   font-size:0.95rem;
   font-weight:900;
-  color:var(--text);
+  color:var(--accent);
   white-space:nowrap;
 }
 
@@ -290,14 +290,14 @@ p{
   border-radius:999px;
   border:2px solid var(--field-border);
   background:var(--field-bg);
-  color:var(--text);
+  color:var(--accent);
   padding:8px 34px 8px 12px;
   font-weight:800;
   outline:none;
   appearance:none;
   background-image:
-    linear-gradient(45deg, transparent 50%, var(--text) 50%),
-    linear-gradient(135deg, var(--text) 50%, transparent 50%);
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
   background-position:
     calc(100% - 18px) calc(50% - 3px),
     calc(100% - 12px) calc(50% - 3px);
@@ -311,7 +311,7 @@ p{
 }
 
 .link{
-  color:var(--text);
+  color:var(--accent);
   font-weight:900;
   font-size:1.02rem;
   padding:12px 16px;
@@ -323,7 +323,7 @@ p{
 }
 
 .link:hover{
-  color:var(--text);
+  color:var(--accent);
   background:var(--link-hover-bg);
   border-color:var(--link-hover-border);
   transform:translateY(-1px);
