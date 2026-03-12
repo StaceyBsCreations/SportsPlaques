@@ -162,315 +162,495 @@
       <p class="small intro-note">Fields with <strong>*</strong> are recommended for fastest proof turnaround.</p>
       <h3 class="form-section-title" style="margin-bottom:20px;">Order Form</h3>
 
-      <div class="order-grid order-grid-single">
-        <div class="order-left order-left-full">
-          <div class="card card-pad">
-            <h3 class="form-section-title">Your Contact Info</h3>
+      <form id="orderForm" autocomplete="off">
+        <div class="order-grid order-grid-single">
+          <div class="order-left order-left-full">
+            <div class="card card-pad">
+              <h3 class="form-section-title">Your Contact Info</h3>
 
-            <div class="field-row">
-              <div>
-                <label for="customerName">Customer name *</label>
-                <input id="customerName" type="text" placeholder="e.g., Jane Smith" autocomplete="name" />
+              <div class="field-row">
+                <div>
+                  <label for="customerName">Customer name *</label>
+                  <input
+                    id="customerName"
+                    name="customerName"
+                    type="text"
+                    placeholder="e.g., Jane Smith"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
+
+                <div>
+                  <label for="customerPhone">Phone number *</label>
+                  <input
+                    id="customerPhone"
+                    name="customerPhone"
+                    type="tel"
+                    placeholder="e.g., (555) 555-5555"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                    inputmode="tel"
+                  />
+                  <div class="help">Used for invoice delivery questions & proof confirmation.</div>
+                </div>
               </div>
 
-              <div>
-                <label for="customerPhone">Phone number *</label>
-                <input id="customerPhone" type="tel" placeholder="e.g., (555) 555-5555" autocomplete="tel" />
-                <div class="help">Used for invoice delivery questions & proof confirmation.</div>
-              </div>
-            </div>
-
-            <div style="margin-top:14px;">
-              <label for="customerEmail">Customer email *</label>
-              <input id="customerEmail" type="email" placeholder="e.g., name@email.com" autocomplete="email" />
-            </div>
-          </div>
-
-          <div class="card card-pad" style="margin-top:16px;">
-            <h3 class="form-section-title">Choose Product, Sport & Styles</h3>
-
-            <div class="field-row">
-              <div>
-                <label for="productType">Product type *</label>
-                <select id="productType"></select>
-              </div>
-
-              <div>
-                <label for="sport">Sport *</label>
-                <select id="sport"></select>
-              </div>
-            </div>
-
-            <div class="field-row" style="margin-top:14px;">
-              <div>
-                <label for="template">Template style</label>
-                <select id="template"></select>
-              </div>
-
-              <div>
-                <label for="baseLayerText">Base layer color</label>
-                <input id="baseLayerText" type="text" placeholder="e.g., Black / Navy / Red" />
-              </div>
-            </div>
-          </div>
-
-          <div class="card card-pad" style="margin-top:16px;">
-            <h3 class="form-section-title">Athlete & Team Details</h3>
-
-            <div class="field-row">
-              <div>
-                <label for="athleteName">Athlete's Name For Back of Jersey *</label>
-                <input id="athleteName" type="text" placeholder="e.g., Bailey" />
-              </div>
-
-              <div>
-                <label for="athleteNumber">Athlete number *</label>
-                <input id="athleteNumber" type="text" placeholder="e.g., 23" />
+              <div style="margin-top:14px;">
+                <label for="customerEmail">Customer email *</label>
+                <input
+                  id="customerEmail"
+                  name="customerEmail"
+                  type="email"
+                  placeholder="e.g., name@email.com"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  inputmode="email"
+                />
               </div>
             </div>
 
-            <div class="field-row" style="margin-top:14px;">
-              <div>
-                <label for="schoolName">School / team name *</label>
-                <input id="schoolName" type="text" placeholder="e.g., Capitan High School" />
+            <div class="card card-pad" style="margin-top:16px;">
+              <h3 class="form-section-title">Choose Product, Sport & Styles</h3>
+
+              <div class="field-row">
+                <div>
+                  <label for="productType">Product type *</label>
+                  <select id="productType" name="productType" autocomplete="off"></select>
+                </div>
+
+                <div>
+                  <label for="sport">Sport *</label>
+                  <select id="sport" name="sport" autocomplete="off"></select>
+                </div>
               </div>
 
-              <div>
-                <label for="year">Year of participation</label>
-                <input id="year" type="text" placeholder="e.g., 1989" />
+              <div class="field-row" style="margin-top:14px;">
+                <div>
+                  <label for="template">Template style</label>
+                  <select id="template" name="template" autocomplete="off"></select>
+                </div>
+
+                <div>
+                  <label for="baseLayerText">Base layer color</label>
+                  <input
+                    id="baseLayerText"
+                    name="baseLayerText"
+                    type="text"
+                    placeholder="e.g., Black / Navy / Red"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
               </div>
             </div>
 
-            <div class="field-row" style="margin-top:14px;">
-              <div>
-                <label for="bornHometown">Born / hometown</label>
-                <input id="bornHometown" type="text" placeholder="e.g., Brampton, ON" />
+            <div class="card card-pad" style="margin-top:16px;">
+              <h3 class="form-section-title">Athlete & Team Details</h3>
+
+              <div class="field-row">
+                <div>
+                  <label for="athleteName">Athlete's Name For Back of Jersey *</label>
+                  <input
+                    id="athleteName"
+                    name="athleteName"
+                    type="text"
+                    placeholder="e.g., Bailey"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
+
+                <div>
+                  <label for="athleteNumber">Athlete number *</label>
+                  <input
+                    id="athleteNumber"
+                    name="athleteNumber"
+                    type="text"
+                    placeholder="e.g., 23"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                    inputmode="numeric"
+                  />
+                </div>
               </div>
 
-              <div>
-                <label for="height">Height</label>
-                <input id="height" type="text" placeholder="e.g., 6 ft 0 in" />
+              <div class="field-row" style="margin-top:14px;">
+                <div>
+                  <label for="schoolName">School / team name *</label>
+                  <input
+                    id="schoolName"
+                    name="schoolName"
+                    type="text"
+                    placeholder="e.g., Capitan High School"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
+
+                <div>
+                  <label for="year">Year of participation</label>
+                  <input
+                    id="year"
+                    name="year"
+                    type="text"
+                    placeholder="e.g., 1989"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                    inputmode="numeric"
+                  />
+                </div>
+              </div>
+
+              <div class="field-row" style="margin-top:14px;">
+                <div>
+                  <label for="bornHometown">Born / hometown</label>
+                  <input
+                    id="bornHometown"
+                    name="bornHometown"
+                    type="text"
+                    placeholder="e.g., Brampton, ON"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
+
+                <div>
+                  <label for="height">Height</label>
+                  <input
+                    id="height"
+                    name="height"
+                    type="text"
+                    placeholder="e.g., 6 ft 0 in"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
+              </div>
+
+              <div style="margin-top:14px;">
+                <label for="weight">Weight</label>
+                <input
+                  id="weight"
+                  name="weight"
+                  type="text"
+                  placeholder="e.g., 214 lbs"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                />
               </div>
             </div>
 
-            <div style="margin-top:14px;">
-              <label for="weight">Weight</label>
-              <input id="weight" type="text" placeholder="e.g., 214 lbs" />
-            </div>
-          </div>
+            <div class="card card-pad" style="margin-top:16px;">
+              <h3 class="form-section-title">Uniform Style & Colors</h3>
 
-          <div class="card card-pad" style="margin-top:16px;">
-            <h3 class="form-section-title">Uniform Style & Colors</h3>
+              <div class="field-row">
+                <div>
+                  <label for="uniformPrimary">Uniform primary color *</label>
+                  <input
+                    id="uniformPrimary"
+                    name="uniformPrimary"
+                    type="text"
+                    placeholder="e.g., Black / White / Red"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
 
-            <div class="field-row">
-              <div>
-                <label for="uniformPrimary">Uniform primary color *</label>
-                <input id="uniformPrimary" type="text" placeholder="e.g., Black / White / Red" />
+                <div>
+                  <label for="uniformAccent">Uniform accent color</label>
+                  <input
+                    id="uniformAccent"
+                    name="uniformAccent"
+                    type="text"
+                    placeholder="e.g., Gold / Silver / Blue"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
               </div>
 
-              <div>
-                <label for="uniformAccent">Uniform accent color</label>
-                <input id="uniformAccent" type="text" placeholder="e.g., Gold / Silver / Blue" />
-              </div>
-            </div>
+              <div class="field-row" style="margin-top:14px;">
+                <div>
+                  <label for="numberColor">Number color</label>
+                  <input
+                    id="numberColor"
+                    name="numberColor"
+                    type="text"
+                    placeholder="e.g., White / Gold / Black"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
 
-            <div class="field-row" style="margin-top:14px;">
-              <div>
-                <label for="numberColor">Number color</label>
-                <input id="numberColor" type="text" placeholder="e.g., White / Gold / Black" />
-              </div>
-
-              <div>
-                <label for="frameFinish">Frame finish *</label>
-                <select id="frameFinish"></select>
-              </div>
-            </div>
-          </div>
-
-          <div class="card card-pad" style="margin-top:16px;">
-            <h3 class="form-section-title">Custom Badge Details</h3>
-
-            <div class="field-row">
-              <div>
-                <label for="position">Position played</label>
-                <input id="position" type="text" placeholder="e.g., WR" />
-              </div>
-
-              <div>
-                <label for="grade">Grade level</label>
-                <input id="grade" type="text" placeholder="e.g., 11th" />
-              </div>
-            </div>
-
-            <div style="margin-top:14px;">
-              <label for="logoCircle">Include team logo circle</label>
-              <select id="logoCircle"></select>
-            </div>
-
-            <div style="margin-top:14px;">
-              <label for="customStats">Custom stats (optional)</label>
-              <textarea id="customStats" placeholder="Examples: • REC: 45 • YDS: 712 • TD: 9 OR • Goals: 18 • Assists: 6"></textarea>
-              <div class="help">We can engrave these on the badge/card area if your template includes it.</div>
-            </div>
-          </div>
-
-          <div class="card card-pad" style="margin-top:16px;">
-            <h3 class="form-section-title">Photo / Card Insert</h3>
-
-            <div class="field-row">
-              <div>
-                <label for="photoWindow">Photo window</label>
-                <select id="photoWindow"></select>
-              </div>
-
-              <div>
-                <label for="photoNotes">Photo notes</label>
-                <input id="photoNotes" type="text" placeholder="e.g., 2.5x3.5 card, vertical, matte" />
+                <div>
+                  <label for="frameFinish">Frame finish *</label>
+                  <select id="frameFinish" name="frameFinish" autocomplete="off"></select>
+                </div>
               </div>
             </div>
 
-            <div class="help" style="margin-top:14px;">
-              After clicking <strong>Email Order</strong>, please manually attach your photo or sports card image to the email draft before sending.
-            </div>
-          </div>
+            <div class="card card-pad" style="margin-top:16px;">
+              <h3 class="form-section-title">Custom Badge Details</h3>
 
-          <div class="card card-pad" style="margin-top:16px;">
-            <h3 class="form-section-title">Notes & Delivery</h3>
+              <div class="field-row">
+                <div>
+                  <label for="position">Position played</label>
+                  <input
+                    id="position"
+                    name="position"
+                    type="text"
+                    placeholder="e.g., WR"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
 
-            <div class="field-row">
-              <div>
-                <label for="neededBy">Needed by</label>
-                <input id="neededBy" type="date" />
-              </div>
-
-              <div>
-                <label for="delivery">Delivery method</label>
-                <select id="delivery"></select>
-              </div>
-            </div>
-
-            <div style="margin-top:14px;">
-              <label for="notes">Notes</label>
-              <textarea id="notes" placeholder="Anything we should know (special requests, preferred wording, etc.)"></textarea>
-            </div>
-
-            <div class="order-actions">
-              <button class="button button-ghost" id="btnReset" type="button">Reset</button>
-            </div>
-          </div>
-
-          <div class="card card-pad" style="margin-top:16px;">
-            <div class="summary-title">Order summary</div>
-            <div class="small subtle" id="sumSku">SKU: —</div>
-
-            <div class="summary-grid">
-              <div class="summary-item">
-                <div class="summary-k">Customer</div>
-                <div class="summary-v" id="sumCustomer">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Phone</div>
-                <div class="summary-v" id="sumPhone">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Email</div>
-                <div class="summary-v" id="sumEmail">—</div>
+                <div>
+                  <label for="grade">Grade level</label>
+                  <input
+                    id="grade"
+                    name="grade"
+                    type="text"
+                    placeholder="e.g., 11th"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
               </div>
 
-              <div class="summary-item">
-                <div class="summary-k">Product</div>
-                <div class="summary-v" id="sumProduct">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Sport</div>
-                <div class="summary-v" id="sumSport">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Template</div>
-                <div class="summary-v" id="sumTemplate">—</div>
+              <div style="margin-top:14px;">
+                <label for="logoCircle">Include team logo circle</label>
+                <select id="logoCircle" name="logoCircle" autocomplete="off"></select>
               </div>
 
-              <div class="summary-item">
-                <div class="summary-k">Base layer color</div>
-                <div class="summary-v" id="sumBaseLayerText">—</div>
-              </div>
-
-              <div class="summary-item">
-                <div class="summary-k">Athlete</div>
-                <div class="summary-v" id="sumAthlete">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Number</div>
-                <div class="summary-v" id="sumNumber">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">School/team</div>
-                <div class="summary-v" id="sumSchool">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Year</div>
-                <div class="summary-v" id="sumYear">—</div>
-              </div>
-
-              <div class="summary-item">
-                <div class="summary-k">Born / hometown</div>
-                <div class="summary-v" id="sumBornHometown">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Height</div>
-                <div class="summary-v" id="sumHeight">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Weight</div>
-                <div class="summary-v" id="sumWeight">—</div>
-              </div>
-
-              <div class="summary-item">
-                <div class="summary-k">Uniform colors</div>
-                <div class="summary-v" id="sumUniformColors">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Number color</div>
-                <div class="summary-v" id="sumNumberColor">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Frame finish</div>
-                <div class="summary-v" id="sumFrameFinish">—</div>
-              </div>
-
-              <div class="summary-item">
-                <div class="summary-k">Position</div>
-                <div class="summary-v" id="sumPosition">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Grade</div>
-                <div class="summary-v" id="sumGrade">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Logo circle</div>
-                <div class="summary-v" id="sumLogoCircle">—</div>
-              </div>
-
-              <div class="summary-item">
-                <div class="summary-k">Photo window</div>
-                <div class="summary-v" id="sumPhotoWindow">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Delivery</div>
-                <div class="summary-v" id="sumDelivery">—</div>
-              </div>
-              <div class="summary-item">
-                <div class="summary-k">Needed by</div>
-                <div class="summary-v" id="sumNeededBy">—</div>
+              <div style="margin-top:14px;">
+                <label for="customStats">Custom stats (optional)</label>
+                <textarea
+                  id="customStats"
+                  name="customStats"
+                  placeholder="Examples: • REC: 45 • YDS: 712 • TD: 9 OR • Goals: 18 • Assists: 6"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                ></textarea>
+                <div class="help">We can engrave these on the badge/card area if your template includes it.</div>
               </div>
             </div>
-          </div>
 
-          <div class="order-actions" style="margin-top:18px; justify-content:flex-start;">
-            <button class="button button-secondary" id="btnEmail" type="button">Email Order</button>
+            <div class="card card-pad" style="margin-top:16px;">
+              <h3 class="form-section-title">Photo / Card Insert</h3>
+
+              <div class="field-row">
+                <div>
+                  <label for="photoWindow">Photo window</label>
+                  <select id="photoWindow" name="photoWindow" autocomplete="off"></select>
+                </div>
+
+                <div>
+                  <label for="photoNotes">Photo notes</label>
+                  <input
+                    id="photoNotes"
+                    name="photoNotes"
+                    type="text"
+                    placeholder="e.g., 2.5x3.5 card, vertical, matte"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                  />
+                </div>
+              </div>
+
+              <div class="help" style="margin-top:14px;">
+                After clicking <strong>Email Order</strong>, please manually attach your photo or sports card image to the email draft before sending.
+              </div>
+            </div>
+
+            <div class="card card-pad" style="margin-top:16px;">
+              <h3 class="form-section-title">Notes & Delivery</h3>
+
+              <div class="field-row">
+                <div>
+                  <label for="neededBy">Needed by</label>
+                  <input
+                    id="neededBy"
+                    name="neededBy"
+                    type="date"
+                    autocomplete="off"
+                  />
+                </div>
+
+                <div>
+                  <label for="delivery">Delivery method</label>
+                  <select id="delivery" name="delivery" autocomplete="off"></select>
+                </div>
+              </div>
+
+              <div style="margin-top:14px;">
+                <label for="notes">Notes</label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  placeholder="Anything we should know (special requests, preferred wording, etc.)"
+                  autocomplete="off"
+                  autocapitalize="sentences"
+                  autocorrect="off"
+                  spellcheck="false"
+                ></textarea>
+              </div>
+
+              <div class="order-actions">
+                <button class="button button-ghost" id="btnReset" type="button">Reset</button>
+              </div>
+            </div>
+
+            <div class="card card-pad" style="margin-top:16px;">
+              <div class="summary-title">Order summary</div>
+              <div class="small subtle" id="sumSku">SKU: —</div>
+
+              <div class="summary-grid">
+                <div class="summary-item">
+                  <div class="summary-k">Customer</div>
+                  <div class="summary-v" id="sumCustomer">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Phone</div>
+                  <div class="summary-v" id="sumPhone">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Email</div>
+                  <div class="summary-v" id="sumEmail">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Product</div>
+                  <div class="summary-v" id="sumProduct">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Sport</div>
+                  <div class="summary-v" id="sumSport">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Template</div>
+                  <div class="summary-v" id="sumTemplate">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Base layer color</div>
+                  <div class="summary-v" id="sumBaseLayerText">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Athlete</div>
+                  <div class="summary-v" id="sumAthlete">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Number</div>
+                  <div class="summary-v" id="sumNumber">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">School/team</div>
+                  <div class="summary-v" id="sumSchool">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Year</div>
+                  <div class="summary-v" id="sumYear">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Born / hometown</div>
+                  <div class="summary-v" id="sumBornHometown">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Height</div>
+                  <div class="summary-v" id="sumHeight">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Weight</div>
+                  <div class="summary-v" id="sumWeight">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Uniform colors</div>
+                  <div class="summary-v" id="sumUniformColors">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Number color</div>
+                  <div class="summary-v" id="sumNumberColor">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Frame finish</div>
+                  <div class="summary-v" id="sumFrameFinish">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Position</div>
+                  <div class="summary-v" id="sumPosition">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Grade</div>
+                  <div class="summary-v" id="sumGrade">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Logo circle</div>
+                  <div class="summary-v" id="sumLogoCircle">—</div>
+                </div>
+
+                <div class="summary-item">
+                  <div class="summary-k">Photo window</div>
+                  <div class="summary-v" id="sumPhotoWindow">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Delivery</div>
+                  <div class="summary-v" id="sumDelivery">—</div>
+                </div>
+                <div class="summary-item">
+                  <div class="summary-k">Needed by</div>
+                  <div class="summary-v" id="sumNeededBy">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="order-actions" style="margin-top:18px; justify-content:flex-start;">
+              <button class="button button-secondary" id="btnEmail" type="button">Email Order</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </section>
 
