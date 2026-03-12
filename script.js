@@ -136,7 +136,6 @@
 
     setText("sumProduct", val("productType") || "—");
     setText("sumSport", val("sport") || "—");
-    setText("sumTemplate", val("template") || "—");
     setText("sumBaseLayerText", val("baseLayerText") || "—");
 
     setText("sumAthlete", val("athleteName") || "—");
@@ -200,7 +199,6 @@
     lines.push("**PRODUCT, SPORT & STYLES**");
     lines.push(`Product Type: ${displayValue(val("productType"))}`);
     lines.push(`Sport: ${displayValue(val("sport"))}`);
-    lines.push(`Template Style: ${displayValue(val("template"))}`);
     lines.push(`Base Layer Color: ${displayValue(val("baseLayerText"))}`);
     lines.push("");
     lines.push("--------------------------------------------------");
@@ -433,7 +431,6 @@
   function init() {
     fillSelect("productType", OPT.productTypes || []);
     fillSelect("sport", OPT.sports || []);
-    fillSelect("template", OPT.templates || []);
     fillSelect("logoCircle", OPT.logoCircle || []);
     fillSelect("photoWindow", OPT.photoWindow || [], "Select...");
     fillSelect("delivery", OPT.delivery || []);
@@ -441,7 +438,7 @@
 
     bindInputs([
       "customerName", "customerPhone", "customerEmail",
-      "productType", "sport", "template", "baseLayerText",
+      "productType", "sport", "baseLayerText",
       "athleteName", "athleteNumber", "schoolName", "year",
       "bornHometown", "height", "weight",
       "uniformPrimary", "uniformAccent", "numberColor", "frameFinish",
